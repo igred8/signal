@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'e:/Dropbox/py_projects/signal'
+make: Leaving directory 'e:/Dropbox/py_projects/signal'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
