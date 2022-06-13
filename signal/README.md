@@ -39,7 +39,11 @@ Project Organization
 
 ## Outline
 
+- create signals
 - aling signals
 - rescaling to known frequency
-- harmonic filter
+- resample at higher rate by zero-padding FFT
+- filtering and smoothing
+  - convolve with window function
+  - filter in frequency space
 - 

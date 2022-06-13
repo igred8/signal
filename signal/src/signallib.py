@@ -10,6 +10,7 @@
 # standard
 # import sys
 # import os
+from random import gauss
 import time
 import bisect
 import json
@@ -23,58 +24,90 @@ import matplotlib.pyplot as plt
 
 # ==========
 
+def boxfunc(xvec, center, width):
+    '''
+    Returns the box function evaluated at the values of xvec.
+    xvec - ndarray of x values
+    center - float. the center of the box
+    width - float. the full width of the box
+
+    Uses the sum of two Heaviside functions to make a box.
+    H(x+width/2) + H(-x+width/2)
+    '''
+    midval = 0.5
+    boxvec = np.heaviside((xvec - center) + width/2, midval) + np.heaviside( -(xvec - center) + width/2, midval)
+    boxvec = boxvec - 1
+    return boxvec
+
+def gaussianfunc(xvec, center, width):
+    '''
+    Returns a Gaussian evaluated at the values of xvec.
+    xvec - ndarray of x values
+    center - float. the center of the Gaussian
+    width - float. full width at half max (FWHM) of the Gaussian 
+
+    Normalized to unity at x=0
+    '''
+
+    sigma =  width / (2 * np.sqrt(2 * np.log(2))) # convert FWHM to sigma
+
+    gaussvec = np.exp( (-(xvec - center)**2) / (2*sigma**2) )
+
+    return gaussvec
 
 
-def smooth(xvec, yvec, width, mode='gauss', edgemode='valid'):
+def smooth(timevec, sigvec, width, mode='gauss', edgemode='valid'):
     """
-    xvec
-    yvec
+    timevec - ndarray. time vector
+    sigvec - ndarray. signal vector
     
-    width - float. if mode == 'gauss' width=std, if 'step' [center-width/2, center+width/2]
-    mode - {'gauss','step', 'median'}
+    width - float. if mode == 'gauss' width=FWHM, if 'box' [center-width/2, center+width/2]
+    mode - {'gauss','box', 'median'}
     edgemode = {'valid','pad'}
-    to be used with gaussian or stepfunc
+    to be used with gaussianfunc or boxfunc
 
-    When 'gauss' or 'step' filtering modes are used, both xvec and yvec are convolved with a gaussian or step function. The output x and y vecs are of shorter length because the 'valid' values begin at the point when the span of the convolution function (gauss/step) is inside the boundaries of the original xvec. 
-    If the edgemode='valid' is used, then the output xvec and yvec are shorter than the input vectors, which may lead to problems when trying to compare initial to filtered signals. 
-    The edgemode='pad' features aims to rectify this by padding the filtered yvec with the edge value on both sides, while keeping the original xvec values there. This method does introduce a discontinuity of the the derivative of the filtered signal.  
+    When 'gauss' or 'box' filtering modes are used, both timevec and sigvec are convolved with a gaussian or box function. The output x and y vectors are of shorter length because the 'valid' values begin at the point when the span of the convolution function is inside the boundaries of the original timevec. 
+    If the edgemode='valid' is used, then the output timevec and sigvec are shorter than the input vectors, which may lead to problems when trying to compare initial to filtered signals. 
+    The edgemode='pad' feature aims to rectify this by padding the filtered sigvec with the edge value on both sides, while keeping the original timevec values there. This method does introduce a discontinuity of the the derivative of the filtered signal.  
     """
-    center = xvec.min() + (xvec.max() - xvec.min() ) / 2
-    xstep = xvec[1]-xvec[0]
-    xlen = xvec.shape[0]
+    center = timevec.min() + (timevec.max() - timevec.min() ) / 2
+    xstep = timevec[1]-timevec[0]
+    xlen = timevec.shape[0]
 
-    if mode in ['gauss', 'step']:
+    if mode in ['gauss', 'box']:
         wvec = 0
         if mode == 'gauss':
             nsig = 5
-            xvectemp = np.arange(center - nsig * width, center + nsig * width + xstep, xstep)
-            wvec = gaussian(xvectemp, center, width)
-        elif mode == 'step':
-            xvectemp = np.arange(center - width/2, center + width/2 + xstep, xstep)
-            wvec = stepfunc(xvectemp, center, width)
+            sigma =  width / (2 * np.sqrt(2 * np.log(2))) # convert FWHM to sigma
+            timevectemp = np.arange(center - nsig * sigma, center + nsig * sigma + xstep, xstep)
+            wvec = gaussianfunc(timevectemp, center, width)
+
+        elif mode == 'box':
+            timevectemp = np.arange(center - width/2, center + width/2 + xstep, xstep)
+            wvec = boxfunc(timevectemp, center, width)
         
-        cnorm = 1 / (np.sum(wvec))
+        normconst = 1 / (np.sum(wvec))
         # use mode='valid', otherwise edge/boundary values are not intuitive
-        yvec = cnorm * np.convolve(yvec, wvec, mode='valid')
+        sigvec = normconst * np.convolve(sigvec, wvec, mode='valid')
         
-        ndiff = xlen - yvec.shape[0]
+        ndiff = xlen - sigvec.shape[0]
         # if ndiff < 0:
-        #     print('WARNING: `width` is larger than `xvec` span.')  
+        #     print('WARNING: `width` is larger than `timevec` span.')  
         if edgemode == 'pad':
             
-            yvec = np.pad(yvec, [ndiff // 2, ndiff - ndiff // 2], mode='edge')
+            sigvec = np.pad(sigvec, [ndiff // 2, ndiff - ndiff // 2], mode='edge')
 
         elif edgemode == 'valid':
-            xvec = cnorm * np.convolve(xvec, wvec, mode='valid') # done to match length of x and y vecs
+            timevec = normconst * np.convolve(timevec, wvec, mode='valid') # done to match length of x and y vecs
 
     elif mode == 'median':
-        yvec = sps.medfilt(yvec, kernel_size=width)
+        sigvec = sps.medfilt(sigvec, kernel_size=width)
     else:
-        print("ERROR: _mode_ must be 'gauss', 'step', or 'median' ")
+        print("ERROR: _mode_ must be 'gauss', 'box', or 'median' ")
         return 1
 
 
-    return xvec, yvec
+    return timevec, sigvec
 
 def fft_scale_phase(timevec, sigvec, convertfactor, *,
 mode='weight', power=2, freqlims='auto',
