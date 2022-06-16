@@ -251,5 +251,5 @@ def fft_resample(sigvec, samplerate_increase_factor ):
     sigvec_upsampled = np.fft.ifft(np.fft.ifftshift(sfftpad))
     sigvec_upsampled = np.real_if_close(sigvec_upsampled) # take only the real value if it's close
 
-    return sigvec_upsampled
+    return sigvec_upsampled.size*sigvec_upsampled
 
