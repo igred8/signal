@@ -239,7 +239,7 @@ def fft_resample(sigvec, samplerate_increase_factor ):
     '''
     
     # number of samples
-    nsamples = sigvec.size
+    nsamples = sigvec.shape[0]
     
     # FFT of signal with appropriate normalization
     sigfft = (1 / nsamples) * np.fft.fft(sigvec, n=nsamples)
@@ -251,5 +251,5 @@ def fft_resample(sigvec, samplerate_increase_factor ):
     sigvec_upsampled = np.fft.ifft(np.fft.ifftshift(sfftpad))
     sigvec_upsampled = np.real_if_close(sigvec_upsampled) # take only the real value if it's close
 
-    return sigvec_upsampled.size*sigvec_upsampled
+    return sigvec_upsampled.shape[0]*sigvec_upsampled
 

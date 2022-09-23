@@ -8,10 +8,12 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 15 17:08:00 2022
+# Make data base, printed on Fri Sep 23 09:00:46 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -20,8 +22,6 @@ LC_ALL = C
 USERPROFILE = C:\Users\Ivan
 # environment
 LOCALAPPDATA = C:\Users\Ivan\AppData\Local
-# environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-1a7080dd-10eb-4b18-b453-0e210a4d4df9-sock
 # environment
 VSCODE_CWD = C:\WINDOWS\system32
 # environment
@@ -37,9 +37,11 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_17648_KLIRASHWMGOPETLL
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_17004_MBZVMFCHQIRONRIS
 # environment
 ONEDRIVECOMMERCIAL = D:\RadiaBeam Technologies, LLC
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -48,12 +50,10 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 %D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
-# environment
-VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Ivan\AppData\Roaming\Code\CachedData\30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = C:\Users\Ivan\AppData\Roaming\Code\CachedData\74b1f979648cc44d385a2286793c226e611f59e7
 # environment
 LANG = C
 # default
@@ -75,8 +75,6 @@ POWERSHELL_DISTRIBUTION_CHANNEL = MSI:Windows 10 Pro
 # makefile
 CURDIR := e:/Dropbox/py_projects/signal
 # environment
-VSCODE_PIPE_LOGGING = true
-# environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
@@ -95,9 +93,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 17648
+VSCODE_PID = 17004
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -127,7 +123,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Wolfram Research\WolframScript\;C:\Users\Ivan\AppData\Local\LyX 2.3\Perl\bin;C:\Program Files\Git\cmd;C:\Program Files\APS\Elegant x64;C:\Program Files\PuTTY\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;%NVM_HOME%;%NVM_SYMLINK%;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Calibre2\;C:\Program Files\PowerShell\7\;C:\Program Files\General Particle Tracer\;C:\texlive\2020\bin\win32;C:\Users\Ivan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\APS\Elegant x64\;C:\Program Files\APS\Elegant x64\MinGW;C:\Program Files\General Particle Tracer\bin\;C:\Users\Ivan\.dotnet\tools;C:\Program Files\PowerShell\7\;C:\Users\Ivan\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Ivan\AppData\Local\Microsoft\WindowsApps;
+PATH = C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Wolfram Research\WolframScript\;C:\Users\Ivan\AppData\Local\LyX 2.3\Perl\bin;C:\Program Files\Git\cmd;C:\Program Files\APS\Elegant x64;C:\Program Files\PuTTY\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Users\Ivan\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Calibre2\;C:\Program Files\PowerShell\7\;C:\Program Files\General Particle Tracer\;C:\texlive\2020\bin\win32;C:\Users\Ivan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\APS\Elegant x64\;C:\Program Files\APS\Elegant x64\MinGW;C:\Program Files\General Particle Tracer\bin\;C:\Users\Ivan\.dotnet\tools;C:\Program Files\PowerShell\7\;C:\Users\Ivan\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Ivan\AppData\Local\Microsoft\WindowsApps;
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -142,8 +138,6 @@ PROMPT = $P$G
 CHOCOLATEYLASTPATHUPDATE = 132806165862440547
 # environment
 LOGONSERVER = \\IVAN-DELL
-# environment
-VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = Ivan
 # environment
@@ -183,8 +177,6 @@ NUMBER_OF_PROCESSORS = 8
 # environment
 PUBLIC = C:\Users\Public
 # environment
-MOZ_PLUGIN_PATH = C:\Program Files (x86)\Foxit Software\Foxit PDF Reader\plugins\
-# environment
 APPDATA = C:\Users\Ivan\AppData\Roaming
 # environment
 HOMEDRIVE = C:
@@ -201,7 +193,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\Ivan\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\11f8232b86d218e6675845479b472ba2-1.68.1-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\11f8232b86d218e6675845479b472ba2-1.71.2-main-sock
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -219,7 +211,7 @@ PROCESSOR_REVISION = 8e0c
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 # variable set hash-table stats:
-# Load=103/1024=10%, Rehash=0, Collisions=8/127=6%
+# Load=99/1024=10%, Rehash=0, Collisions=8/123=7%
 
 # Pattern-specific Variable Values
 
@@ -268,7 +260,8 @@ makefile:
 makefile.mak:
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
+#  File has been u 
+pdated.
 #  Failed to be updated.
 
 # Not a target:
@@ -292,6 +285,6 @@ GNUmakefile:
 # strcache performance: lookups = 15 / hit rate = 20%
 # hash-table stats:
 # Load=12/8192=0%, Rehash=0, Collisions=0/15=0%
-# Finished Make data base on Wed Jun 15 17:08:00 2022
+# Finished Make data base on Fri Sep 23 09:00:46 2022
 
  
