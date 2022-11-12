@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Sep 23 09:00:46 2022
+# Make data base, printed on Thu Nov 10 07:58:32 2022
 
 # Variables
 
@@ -37,7 +37,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_17004_MBZVMFCHQIRONRIS
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2120_SGCFXVEEAWMDAZGU
 # environment
 ONEDRIVECOMMERCIAL = D:\RadiaBeam Technologies, LLC
 # environment
@@ -53,7 +53,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Ivan\AppData\Roaming\Code\CachedData\74b1f979648cc44d385a2286793c226e611f59e7
+VSCODE_CODE_CACHE_PATH = C:\Users\Ivan\AppData\Roaming\Code\CachedData\6261075646f055b99068d3688932416f2346dd3b
 # environment
 LANG = C
 # default
@@ -93,7 +93,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 17004
+VSCODE_PID = 2120
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -158,8 +158,6 @@ USERDOMAIN = IVAN-DELL
 GNUMAKEFLAGS := 
 # environment
 OS = Windows_NT
-# environment
-__COMPAT_LAYER = DetectorsAppHealth
 # makefile
 .DEFAULT_GOAL := 
 # environment
@@ -193,7 +191,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\Ivan\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\11f8232b86d218e6675845479b472ba2-1.71.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\11f8232b86d218e6675845479b472ba2-1.73.1-main-sock
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -211,7 +209,7 @@ PROCESSOR_REVISION = 8e0c
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 # variable set hash-table stats:
-# Load=99/1024=10%, Rehash=0, Collisions=8/123=7%
+# Load=98/1024=10%, Rehash=0, Collisions=8/122=7%
 
 # Pattern-specific Variable Values
 
@@ -219,7 +217,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 
 # Directories
 
-# . (key e:/Dropbox/py_projects/signal, mtime 1654807776): 5 files, no impossibilities.
+# . (key e:/Dropbox/py_projects/signal, mtime 1654804176): 5 files, no impossibilities.
 
 # 5 files, no impossibilities in 1 directories.
 
@@ -260,8 +258,7 @@ makefile:
 makefile.mak:
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been u 
-pdated.
+#  File has been updated.
 #  Failed to be updated.
 
 # Not a target:
@@ -285,6 +282,6 @@ GNUmakefile:
 # strcache performance: lookups = 15 / hit rate = 20%
 # hash-table stats:
 # Load=12/8192=0%, Rehash=0, Collisions=0/15=0%
-# Finished Make data base on Fri Sep 23 09:00:46 2022
+# Finished Make data base on Thu Nov 10 07:58:32 2022
 
  
